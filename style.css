@@ -1,0 +1,145 @@
+/* ---------- Global ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f4f6fb;
+  --panel: #ffffff;
+  --text: #1f2937;
+  --accent: #2563eb;
+  --accent-2: #10b981;
+  --danger: #ef4444;
+  --radius: 12px;
+}
+
+/* Dark theme is applied when body has class "dark" */
+body.dark {
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --text: #e2e8f0;
+  --accent: #3b82f6;
+  --accent-2: #34d399;
+}
+
+body {
+  font-family: system-ui, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background .3s, color .3s;
+  min-height: 100vh;
+}
+
+header, footer {
+  text-align: center;
+  padding: 1rem;
+}
+header h1 { font-size: 1.8rem; margin-bottom: .25rem; }
+#clock { font-size: .9rem; opacity: .8; }
+
+/* ---------- Dashboard Grid ---------- */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.2rem;
+  padding: 1rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: 0 4px 14px rgba(0,0,0,.08);
+}
+.panel h2 {
+  font-size: 1.1rem;
+  margin-bottom: .75rem;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+  padding-bottom: .15rem;
+}
+
+/* ---------- Calculator ---------- */
+#display {
+  width: 100%;
+  font-size: 1.6rem;
+  text-align: right;
+  padding: .6rem;
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  margin-bottom: .75rem;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .5rem;
+}
+
+.keys button {
+  padding: .9rem 0;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: var(--bg);
+  color: var(--text);
+  transition: transform .1s, background .2s;
+}
+.keys button:hover { background: var(--accent); color: #fff; }
+.keys button:active { transform: scale(.95); }
+
+#equals { background: var(--accent-2); color: #fff; }
+#clear  { background: var(--danger); color: #fff; }
+.span-2 { grid-column: span 2; }
+
+/* ---------- History ---------- */
+#historyList {
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: .75rem;
+}
+#historyList li {
+  padding: .35rem .5rem;
+  border-bottom: 1px dashed #ccc3;
+  font-family: monospace;
+}
+
+.history button {
+  margin-right: .5rem;
+  padding: .4rem .8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ---------- Info ---------- */
+.info p { margin: .35rem 0; font-size: .92rem; }
+.info span { font-weight: 600; color: var(--accent); }
+.msg { font-size: .85rem; color: var(--danger); min-height: 1em; }
+hr { margin: .75rem 0; border: none; border-top: 1px solid #ccc5; }
+
+#demoForm label { display: block; margin-bottom: .4rem; font-size: .9rem; }
+#demoForm input {
+  width: 100%; padding: .45rem; border-radius: 6px;
+  border: 1px solid #ccc8; margin-top: .25rem;
+}
+#demoForm button {
+  margin-top: .5rem; padding: .45rem 1rem;
+  border: none; border-radius: 6px; cursor: pointer;
+  background: var(--accent); color: #fff;
+}
+
+/* ---------- Footer ---------- */
+footer { padding-bottom: 2rem; }
+footer button {
+  margin-top: .5rem; padding: .45rem 1rem;
+  border: none; border-radius: 6px; cursor: pointer;
+  background: var(--accent); color: #fff;
+}
+footer span { font-weight: 600; }
